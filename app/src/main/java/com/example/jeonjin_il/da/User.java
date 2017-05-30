@@ -22,7 +22,7 @@ public class User implements Serializable{
         this.id = id;
         this.pw = pw;
         ticket = new Ticket("testserialNo","06-01","Afternoon",10000); //임시생성
-        card = new Card("1234-1234-1234-1234",12,20,10000000);
+        card = new Card("1234-1234-1234-1234",12,20,10000000);   // 이미 카드가지고 있다고 가정
         buyTicket = new ArrayList<Ticket>();
     }
 

@@ -19,24 +19,24 @@ public class DBHandler extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE LIFT( lift_id INTEGER PRIMARY KEY AUTOINCREMENT, lift_name TEXT," +
-                " lift_level INTEGER, lift_length INTEGER, lift_speed INTEGER )");
+                " lift_level INTEGER, lift_length INTEGER, lift_speed INTEGER, state INTEGER )");
         db.execSQL("CREATE TABLE TIMEBLOCK( lift_id INTEGER , time REAL, capacity INTEGER )");
         db.execSQL("CREATE TABLE TICKETPRICE( day TEXT PRIMARY KEY,price1 INTEGER, price2 INTEGER, price3 INTGER )");
 //        db.execSQL("CREATE TABLE USER ( user_key INTEGER PRIMARAY KEY AUTOINCREMENT, user_id TEXT , user_pw TEXT )");
     }
 
-    public void Lift_Insert(String liftname , int liftlevel,int liftlength,int liftspeed){
+    public void Lift_Insert(String liftname , int liftlevel,int liftlength,int liftspeed,int state){
         SQLiteDatabase db = getReadableDatabase();
-        db.execSQL("INSERT INTO LIFT VALUES (null, '" + liftname + "' , "+liftlevel + " , "+liftlength + " , "+ liftspeed+ ");");
+        db.execSQL("INSERT INTO LIFT VALUES (null, '" + liftname + "' , "+liftlevel + " , "+liftlength + " , "+ liftspeed+ ","+state+ ");");
         db.close();
     }
 
     public ArrayList<Lift> getLiftByLevel(int level){
         ArrayList<Lift> ret = new ArrayList<Lift>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM LIFT WHERE lift_level = "+level,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM LIFT WHERE lift_level = "+level+" AND state = "+1,null);
         while(cursor.moveToNext())
-            ret.add( new Lift(cursor.getInt(0),cursor.getInt(2),cursor.getString(1),cursor.getInt(3),cursor.getInt(4),getTimeBlock(cursor.getInt(0))));
+            ret.add( new Lift(cursor.getInt(0),cursor.getInt(2),cursor.getString(1),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5),getTimeBlock(cursor.getInt(0))));
         return ret;
     }
 
@@ -90,6 +90,21 @@ public class DBHandler extends SQLiteOpenHelper{
         while(cursor.moveToNext())
             ret.add( new TicketPrice(cursor.getString(0),cursor.getInt(1),cursor.getInt(2),cursor.getInt(3)));
         db.close();
+        return ret;
+    }
+
+    public void changeLiftState(int liftId, int state) {
+        SQLiteDatabase db = getReadableDatabase();
+        db.execSQL("UPDATE LIFT SET state = "+ state +" WHERE lift_id = " +liftId  );
+        db.close();
+    }
+
+    public ArrayList<Lift> getLiftByState(int state) {
+        ArrayList<Lift> ret = new ArrayList<Lift>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM LIFT WHERE state = "+ state ,null);
+        while(cursor.moveToNext())
+            ret.add( new Lift(cursor.getInt(0),cursor.getInt(2),cursor.getString(1),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5),getTimeBlock(cursor.getInt(0))));
         return ret;
     }
 }

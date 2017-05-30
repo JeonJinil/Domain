@@ -10,7 +10,8 @@ import java.util.Random;
  */
 
 public class Handler {
-
+    final int OPEN =  1;
+    final int CLOSE = 0;
     ArrayList<Integer> makeLiftReservation(Ticket t , Activity act){
         ArrayList<Integer> ret = new ArrayList<Integer>();
         if(t.isfull())
@@ -73,5 +74,32 @@ public class Handler {
 
     public int getSubTotal(User u) {
         return u.getSubTotal(u.getBasket());
+    }
+
+    public ArrayList<String> ManageLift() {
+        ArrayList<String> ret = new ArrayList<String>();
+        ret.add("REGISTER LIFT");
+        ret.add("OPEN LIFT");
+        ret.add("CLOSE LIFT");
+        return ret;
+    }
+
+    public void RegisterLift(String LiftName, int LiftLevel, int LiftLength, int LiftSpeed,Activity act) {
+        DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
+        db.Lift_Insert(LiftName,LiftLevel,LiftLength,LiftSpeed, OPEN);
+    }
+
+    public void changeLiftState(int liftId, int state, Activity act) {
+        DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
+        if(state == OPEN)
+            db.changeLiftState(liftId,CLOSE);
+        else
+            db.changeLiftState(liftId,OPEN);
+    }
+
+    public ArrayList<Lift> openLift(int state,Activity act) {
+        DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
+
+        return db.getLiftByState(state);
     }
 }

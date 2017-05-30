@@ -1,25 +1,33 @@
 package com.example.jeonjin_il.da;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
- * Created by jeonjin-il on 2017. 5. 27..
+ * Created by jeonjin-il on 2017. 5. 31..
  */
 
-public class ListView_Adapter extends BaseAdapter{
+public class LiftOpen_Adapter extends BaseAdapter {
     private ArrayList<Lift> m_List;
     private User u;
-    public ListView_Adapter(ArrayList<Lift> lifts,User u) {
+    Handler handler;
+    final int OPEN = 1;
+    Activity act;
+    public LiftOpen_Adapter(ArrayList<Lift> lifts,Activity act) {
         this.m_List = lifts;
-        this.u = u;
+        handler = new Handler();
+        this.act = act;
     }
     @Override
     public int getCount() {
@@ -60,12 +68,28 @@ public class ListView_Adapter extends BaseAdapter{
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context,UserUC3_3Activity.class);
-                    Lift l = m_List.get(position);
-//                    Toast.makeText(context.getApplicationContext(),l.getLiftName(),Toast.LENGTH_SHORT).show();
-                    intent.putExtra("l",l);
-                    intent.putExtra("u",u);
-                    context.startActivity(intent);
+                    AlertDialog.Builder alert_confirm = new AlertDialog.Builder(act);
+                    alert_confirm.setMessage("리프트를 닫으시겠습니까?").setCancelable(false).setPositiveButton("확인",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(context,"zz",Toast.LENGTH_LONG).show();
+                                    //handler.changeLiftState(m_List.get(position).getLiftId(),OPEN,act);
+
+                                }
+                            }).setNegativeButton("취소",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    return;
+                                }
+                            });
+                    AlertDialog alert = alert_confirm.create();
+                    alert.show();
+
+
+
+
                 }
             });
         }

@@ -21,7 +21,10 @@
         <activity android:name=".UserUC3_2Activity" />
         <activity android:name=".UserUC3_3Activity" />
         <activity android:name=".UserUC1_1Activity" />
-        <activity android:name=".UserUC1_2Activity"></activity>
+        <activity android:name=".UserUC1_2Activity" />
+        <activity android:name=".AdminUC5_1Activity" />
+        <activity android:name=".AdminUC5_2Activity" />
+        <activity android:name=".AdminUC5_3Activity"></activity>
     </application>
 
 </manifest>

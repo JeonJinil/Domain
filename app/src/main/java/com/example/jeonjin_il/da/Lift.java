@@ -16,15 +16,19 @@ public class Lift implements Serializable {
     private String liftName;
     private int liftLength;
     private int liftSpeed;
+    private int state; // true : open , false : close (DB 에 boolean 이 없음)
     private ArrayList<TimeBlock> timeblock;
-    public Lift(int liftId,int liftLevel, String liftName, int liftLength, int liftSpeed,ArrayList<TimeBlock> timeblock) {
+    public Lift(int liftId,int liftLevel, String liftName, int liftLength, int liftSpeed,int state,ArrayList<TimeBlock> timeblock) {
         this.liftId = liftId;
         this.liftLevel = liftLevel;
         this.liftName = liftName;
         this.liftLength = liftLength;
         this.liftSpeed = liftSpeed;
         this.timeblock = timeblock;
+        this.state = state;
     }
+
+    public int isOpen() { return state;}
 
     public int getLiftId() {
         return liftId;
