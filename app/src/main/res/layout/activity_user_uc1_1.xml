@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.example.jeonjin_il.da.UserUC1_1Activity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="TICKET PRICE"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/tklist"
+        android:layout_width="match_parent"
+        android:layout_height="381dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="0WON"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/uc1_1Text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/uc1_1btn1"
+            android:layout_weight="1"
+            android:text="BUY"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>
