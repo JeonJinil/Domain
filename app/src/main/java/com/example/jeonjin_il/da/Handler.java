@@ -99,7 +99,11 @@ public class Handler {
 
     public ArrayList<Lift> openLift(int state,Activity act) {
         DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
+        return db.getLiftByState(state);
+    }
 
+    public ArrayList<Lift> closeLift(int state, Activity act) {
+        DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
         return db.getLiftByState(state);
     }
 }

@@ -27,8 +27,22 @@ public class DBHandler extends SQLiteOpenHelper{
 
     public void Lift_Insert(String liftname , int liftlevel,int liftlength,int liftspeed,int state){
         SQLiteDatabase db = getReadableDatabase();
+        int liftKey = getTableRow();
+        System.out.println("LIFT KEY : "+liftKey);
         db.execSQL("INSERT INTO LIFT VALUES (null, '" + liftname + "' , "+liftlevel + " , "+liftlength + " , "+ liftspeed+ ","+state+ ");");
+        for(int i=0;i<48;i++) {
+            TimeBlock_Insert(liftKey,i,0);
+        }
         db.close();
+    }
+
+    public int getTableRow(){
+        int ret = 1;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM LIFT ",null);
+        while(cursor.moveToNext())
+            ret++;
+        return ret;
     }
 
     public ArrayList<Lift> getLiftByLevel(int level){
@@ -103,8 +117,14 @@ public class DBHandler extends SQLiteOpenHelper{
         ArrayList<Lift> ret = new ArrayList<Lift>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM LIFT WHERE state = "+ state ,null);
+        System.out.println("TEST!!!");
         while(cursor.moveToNext())
             ret.add( new Lift(cursor.getInt(0),cursor.getInt(2),cursor.getString(1),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5),getTimeBlock(cursor.getInt(0))));
+
+        for(int i=0;i<ret.size();i++){
+            System.out.println("TEST! :"+ret.get(i).getLiftName());
+        }
+
         return ret;
     }
 }

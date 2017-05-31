@@ -23,17 +23,17 @@
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="30dp" />
 
     <EditText
         android:id="@+id/uc5_1edit1"
         android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="30dp" />
+        android:layout_height="50dp" />
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:textSize="10dp"
         android:text="LIFT NAME"/>
     <android.support.v4.widget.Space
@@ -44,11 +44,11 @@
         android:id="@+id/uc5_1edit2"
         android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="30dp" />
+        android:layout_height="50dp" />
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:textSize="10dp"
         android:text="LIFT LEVEL"/>
     <android.support.v4.widget.Space
@@ -59,11 +59,11 @@
         android:id="@+id/uc5_1edit3"
         android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="30dp" />
+        android:layout_height="50dp" />
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:textSize="10dp"
         android:text="LIFT LENGTH"/>
     <android.support.v4.widget.Space
@@ -74,16 +74,16 @@
         android:id="@+id/uc5_1edit4"
         android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="30dp" />
+        android:layout_height="50dp" />
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:textSize="10dp"
         android:text="LIFT SPEED"/>
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
     <Button
         android:id="@+id/uc5_1btn1"
         android:text="REGISTER"
