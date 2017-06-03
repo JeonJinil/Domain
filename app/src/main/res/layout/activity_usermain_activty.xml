@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.example.jeonjin_il.da.UserMainActivty">
 
+    <TextView
+        android:gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="USER PAGE"
+        android:textSize="30dp"/>
 
     <Button
         android:id="@+id/userbtn1"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="130dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="54dp"
         android:text="BUY TICKET" />
 
     <Button
         android:id="@+id/userbtn2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userbtn1"
-        android:layout_alignStart="@+id/userbtn1"
-        android:layout_below="@+id/userbtn1"
         android:layout_marginTop="25dp"
-        android:text="UC2" />
+        android:text="REGISTER TICKET" />
 
     <Button
         android:id="@+id/userbtn3"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userbtn2"
-        android:layout_alignStart="@+id/userbtn2"
-        android:layout_below="@+id/userbtn2"
         android:layout_marginTop="28dp"
         android:text="Reserve Lift" />
 
     <Button
         android:id="@+id/userbtn4"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:text="UC4"
+        android:text="CANCEL LIFT"
         android:layout_below="@+id/userbtn3"
         android:layout_alignLeft="@+id/userbtn3"
         android:layout_alignStart="@+id/userbtn3" />
 
     <Button
         android:id="@+id/userbtn5"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userbtn4"
-        android:layout_alignStart="@+id/userbtn4"
-        android:layout_below="@+id/userbtn4"
         android:layout_marginTop="31dp"
         android:text="Confirm Reservation" />
-</RelativeLayout>
+</LinearLayout>

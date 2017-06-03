@@ -24,7 +24,8 @@
         <activity android:name=".UserUC1_2Activity" />
         <activity android:name=".AdminUC5_1Activity" />
         <activity android:name=".AdminUC5_2Activity" />
-        <activity android:name=".AdminUC5_3Activity"></activity>
+        <activity android:name=".AdminUC5_3Activity" />
+        <activity android:name=".UserUC2_1Activity"></activity>
     </application>
 
 </manifest>

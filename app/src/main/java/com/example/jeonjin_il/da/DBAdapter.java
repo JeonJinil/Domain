@@ -11,8 +11,8 @@ import java.util.ArrayList;
  * Created by jeonjin-il on 2017. 5. 27..
  */
 
-public class DBHandler extends SQLiteOpenHelper{
-    public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+public class DBAdapter extends SQLiteOpenHelper{
+    public DBAdapter(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

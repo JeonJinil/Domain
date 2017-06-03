@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class UserUC3_3Activity extends AppCompatActivity {
     User u;
     Lift l;
-    Handler h;
+    Handler handler;
     LinearLayout lm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,11 @@ public class UserUC3_3Activity extends AppCompatActivity {
 
         u = (User) getIntent().getSerializableExtra("u");
         l = (Lift) getIntent().getSerializableExtra("l");
-        h = new Handler();
+        handler = Handler.getInstance();
         TextView t = (TextView)findViewById(R.id.uc3_3text2);
         t.setText(l.getLiftName());
 
-        h.enterName(u.getTicket(),l.getLiftName());
+        handler.enterName(u.getTicket(),l.getLiftName());
         Toast.makeText(getApplicationContext(),u.getId()+l.getLiftName(),Toast.LENGTH_SHORT).show();
 
 
@@ -57,7 +57,7 @@ public class UserUC3_3Activity extends AppCompatActivity {
                         finish();
                     }
                     else {
-                        h.enterTime(u.getTicket(), l.getTimeblock().get(position).getTime());
+                        handler.enterTime(u.getTicket(), l.getTimeblock().get(position).getTime());
                         l.increaseCapacity(l.getTimeblock().get(position).getTime(), act);
                         Toast.makeText(getApplicationContext(), "완료 되었습니다.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), UserMainActivty.class);

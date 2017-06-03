@@ -79,7 +79,7 @@ public class Lift implements Serializable {
         if((int)time == time)
             turn = (int) (time*2+0.4);
         timeblock.get(turn).increase();
-        DBHandler db = new DBHandler(act.getApplicationContext(),"SNL.db",null,1);
+        DBAdapter db = new DBAdapter(act.getApplicationContext(),"SNL.db",null,1);
         db.increase(timeblock.get(turn).getCapacity(),liftId,time);
     }
 }

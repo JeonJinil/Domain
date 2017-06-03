@@ -23,41 +23,56 @@ public class UserUC3_1Activity extends AppCompatActivity {
 
         u = (User)getIntent().getSerializableExtra("user");
 
-        handler = new Handler();
-        liftlevel = handler.makeLiftReservation(u.getTicket(),this);
-        if( liftlevel.size() == 0) {
-            Toast.makeText(getApplicationContext(),"예약이 2개 다 찾습니다.",Toast.LENGTH_LONG).show();
+        handler = Handler.getInstance();
+        if(u.getTicket() == null){
+            Toast.makeText(getApplicationContext(),"티켓을 등록해주세요.",Toast.LENGTH_LONG).show();
             this.finish();
         }
+        else {
+            liftlevel = handler.makeLiftReservation(u.getTicket(), this);
+            if (liftlevel.size() == 0) {
+                Toast.makeText(getApplicationContext(), "예약이 2개 다 찾습니다.", Toast.LENGTH_LONG).show();
+                this.finish();
+            }
 
 
+            Button btn1 = (Button) findViewById(R.id.uc3_1btn1);
+            Button btn2 = (Button) findViewById(R.id.uc3_1btn2);
+            Button btn3 = (Button) findViewById(R.id.uc3_1btn3);
+            btn1.setText(String.valueOf(liftlevel.get(0)));
+            btn2.setText(String.valueOf(liftlevel.get(1)));
+            btn3.setText(String.valueOf(liftlevel.get(2)));
 
-        lm = (LinearLayout) findViewById(R.id.ll);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-        // 동적 버튼 생성 (level 버튼생성)
-        for (int j = 0; j < liftlevel.size(); j++) {
-            LinearLayout ll = new LinearLayout(this);
-            ll.setOrientation(LinearLayout.HORIZONTAL);
-
-            final Button btn = new Button(this);
-            btn.setId(j + 1);
-            btn.setTextSize(30);
-            btn.setText("난이도 :  "+liftlevel.get(j)+" ");
-            btn.setLayoutParams(params);
-
-            final int position = j;
-
-            btn.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),UserUC3_2Activity.class);
-                    intent.putExtra("user",u);
-                    intent.putExtra("liftLevel",liftlevel.get(position));
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                    intent.putExtra("user", u);
+                    intent.putExtra("liftLevel", liftlevel.get(0));
                     startActivity(intent);
                 }
             });
-            ll.addView(btn);
-            lm.addView(ll);
+
+            btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                    intent.putExtra("user", u);
+                    intent.putExtra("liftLevel", liftlevel.get(1));
+                    startActivity(intent);
+                }
+            });
+
+            btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                    intent.putExtra("user", u);
+                    intent.putExtra("liftLevel", liftlevel.get(2));
+                    startActivity(intent);
+                }
+            });
+
         }
     }
 

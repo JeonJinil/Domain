@@ -15,7 +15,7 @@ public class AdminMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
-        handler = new Handler();
+        handler = Handler.getInstance();
         ArrayList<String> functionList = handler.ManageLift();
 
         btn1 = (Button)findViewById(R.id.adbtn1);

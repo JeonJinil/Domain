@@ -21,7 +21,6 @@ public class UserMainActivty extends AppCompatActivity {
         if(u == null)
             u = new User(getIntent().getStringExtra("id"),getIntent().getStringExtra("pw"));
 
-        Toast.makeText(getApplicationContext(),"User id : "+u.getId()+"  User pw : "+u.getPw(),Toast.LENGTH_SHORT).show();
         findViewById(R.id.userbtn1).setOnClickListener(listener1);
         findViewById(R.id.userbtn2).setOnClickListener(listener2);
         findViewById(R.id.userbtn3).setOnClickListener(listener3);
@@ -39,7 +38,9 @@ public class UserMainActivty extends AppCompatActivity {
     Button.OnClickListener listener2 = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-
+            Intent intent = new Intent(getApplicationContext(),UserUC2_1Activity.class);
+            intent.putExtra("user",u);
+            startActivity(intent);
         }
     };
     Button.OnClickListener listener3 = new View.OnClickListener(){

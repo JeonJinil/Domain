@@ -14,8 +14,6 @@ public class Ticket implements Serializable {
     private LiftReservation liftReservation[];
     private LiftReservation r;
 
-    public Ticket() {
-    }
 
     public Ticket(String serialNumber, String date, String timeType, int price) {
         this.serialNumber = serialNumber;
@@ -51,17 +49,6 @@ public class Ticket implements Serializable {
     public LiftReservation[] getLiftReservation() {
         return liftReservation;
     }
-
-    public void createTicket( String date, String timeType, int price) {
-        this.serialNumber = "";
-        this.date = date;
-        this.timeType = timeType;
-        this.price = price;
-        liftReservation = new LiftReservation[2];
-    }
-
-
-
 
 
     //getter

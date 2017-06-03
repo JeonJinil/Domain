@@ -16,14 +16,14 @@ public class User implements Serializable{
     private Ticket ticket;
     private Basket basket;
     private Card card;
-    private ArrayList<Ticket> buyTicket;   //구입한 티켓들
+    private ArrayList<Ticket> TicketBox;   //구입한 티켓들
 
     public User(String id, String pw) {
         this.id = id;
         this.pw = pw;
-        ticket = new Ticket("testserialNo","06-01","Afternoon",10000); //임시생성
+        //ticket = new Ticket("testserialNo","06-01","Afternoon",10000); //임시생성
         card = new Card("1234-1234-1234-1234",12,20,10000000);   // 이미 카드가지고 있다고 가정
-        buyTicket = new ArrayList<Ticket>();
+        TicketBox = new ArrayList<Ticket>();
     }
 
     boolean hasTicket(){
@@ -34,7 +34,7 @@ public class User implements Serializable{
         ArrayList<Ticket> temp = basket.getTicket();
         for(int i=0;i<temp.size();i++) {
             temp.get(i).setSerialNumber(serialNoGen());
-            buyTicket.add(temp.get(i));
+            TicketBox.add(temp.get(i));
         }
         basket = null;
     }
@@ -67,9 +67,13 @@ public class User implements Serializable{
         basket = new Basket();
     }
 
-    public int makeTicket(String date, String timeType, int price) {
-        Ticket t = new Ticket();
-        t.createTicket(date,timeType,price);
+    public boolean makeTicket(String serial, String date, String timeType, String price) {
+        ticket = new Ticket(serial,date,timeType,Integer.valueOf(price));
+        return true;
+    }
+    public int makeTicket( String date, String timeType, int price) {
+        Ticket t = new Ticket("",date,timeType, price);
+
         return basket.add(t);
     }
 
@@ -83,7 +87,7 @@ public class User implements Serializable{
     }
 
     public ArrayList<Ticket> getBuyTicket() {
-        return buyTicket;
+        return TicketBox;
     }
     public ArrayList<Ticket> tempBuyTicket(){
         return basket.getTicket();
@@ -121,7 +125,7 @@ public class User implements Serializable{
     }
 
     public void setBuyTicket(ArrayList<Ticket> buyTicket) {
-        this.buyTicket = buyTicket;
+        this.TicketBox = buyTicket;
     }
 
     public int getSubTotal(Basket basket) {

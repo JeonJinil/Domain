@@ -25,7 +25,7 @@ public class TicketPrice_Adapter extends BaseAdapter {
     public TicketPrice_Adapter(ArrayList<TicketPrice> lifts, User u, TextView textview) {
         this.lifts = lifts;
         this.u = u;
-        handler = new Handler();
+        handler = Handler.getInstance();
         TotalPrice=0;
         tx = textview;
     }

@@ -12,20 +12,36 @@
         android:text="Select Level"
         android:textSize="30dp"
         android:gravity="center"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <android.support.v4.widget.Space
-            android:layout_width="100dp"
-            android:layout_height="match_parent" />
-        <LinearLayout
-            android:id="@+id/ll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            />
-    </LinearLayout>
+
+    <Button
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/uc3_1btn1"
+        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:text="text"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/uc3_1btn2"
+        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:text="text"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/uc3_1btn3"
+        android:layout_height="80dp"
+        android:layout_width="200dp"
+        android:text="text"
+        android:layout_marginBottom="10dp"
+        />
 
 
 

@@ -12,6 +12,12 @@
         android:textSize="30dp"
         android:gravity="center"
         android:text="CLOSED LIFT"/>
+    <TextView
+        android:textSize="15dp"
+        android:gravity="center"
+        android:text="SELECT LIFT"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
     <ListView
         android:id="@+id/uc5_3list"
         android:layout_width="match_parent"

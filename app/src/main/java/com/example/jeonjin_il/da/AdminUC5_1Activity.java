@@ -21,7 +21,7 @@ public class AdminUC5_1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_uc5_1);
-        handler = new Handler();
+        handler = Handler.getInstance();
         act = this;
 
         ed1 = (EditText)findViewById(R.id.uc5_1edit1);

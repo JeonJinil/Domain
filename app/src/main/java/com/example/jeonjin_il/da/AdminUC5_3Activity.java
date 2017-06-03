@@ -15,7 +15,7 @@ public class AdminUC5_3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_uc5_3);
 
-        handler = new Handler();
+        handler = Handler.getInstance();
         ArrayList<Lift> lifts = handler.closeLift(CLOSE,this);
 
         ListView listView = (ListView) findViewById(R.id.uc5_3list);

@@ -28,7 +28,7 @@ public class LiftState_Adapter extends BaseAdapter {
     Activity act;
     public LiftState_Adapter(ArrayList<Lift> lifts,int state, Activity act) {
         this.m_List = lifts;
-        handler = new Handler();
+        handler = Handler.getInstance();
         this.state = state;
         this.act = act;
     }

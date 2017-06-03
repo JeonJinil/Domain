@@ -20,7 +20,7 @@ public class UserUC1_2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_uc1_2);
         u = (User)getIntent().getSerializableExtra("user");
-        handler = new Handler();
+        handler = Handler.getInstance();
         tx1 = (TextView)findViewById(R.id.uc1_2text1);
         tx2 = (TextView)findViewById(R.id.uc1_2Text2);
         btn = (Button)findViewById(R.id.uc1_2btn1);

@@ -11,6 +11,7 @@
         android:layout_height="50dp"
         android:text="Select Lift"
         android:textSize="30dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"/>
     <ListView
         android:id ="@+id/listview"

@@ -24,7 +24,7 @@ public class UserUC1_1Activity extends AppCompatActivity {
 
         u = (User)getIntent().getSerializableExtra("user");
         textview = (TextView)findViewById(R.id.uc1_1Text1);
-        handler = new Handler();
+        handler = Handler.getInstance();
         desc = handler.buyTicket(this);
         u.makeBasket();
 

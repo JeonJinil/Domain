@@ -17,7 +17,7 @@ public class UserUC3_2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_uc3_2);
 
-        handler = new Handler();
+        handler = Handler.getInstance();
         u = (User)getIntent().getSerializableExtra("user");
         liftLevel = getIntent().getIntExtra("liftLevel",1);
         Lifts = handler.enterLevel(u.getTicket(),liftLevel,this);

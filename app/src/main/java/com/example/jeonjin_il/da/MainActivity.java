@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void DBInit(){
-        DBHandler db = new DBHandler(getApplicationContext(),"SNL.db",null,1);
+        DBAdapter db = new DBAdapter(getApplicationContext(),"SNL.db",null,1);
         if(db.needInti()){
             db.Lift_Insert("Mercury",1,1000,10,1);
 //            db.Lift_Insert("Venus",3,500,50,1);
