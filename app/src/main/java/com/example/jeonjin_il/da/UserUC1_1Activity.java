@@ -36,6 +36,7 @@ public class UserUC1_1Activity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),UserUC1_2Activity.class);
                     intent.putExtra("user",u);
                     startActivity(intent);
+                    finish();
                 }else
                     Toast.makeText(getApplicationContext(),"상품을 골라주세요",Toast.LENGTH_SHORT).show();
             }

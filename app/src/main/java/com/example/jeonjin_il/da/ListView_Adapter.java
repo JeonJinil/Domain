@@ -66,6 +66,7 @@ public class ListView_Adapter extends BaseAdapter{
                     intent.putExtra("l",l);
                     intent.putExtra("u",u);
                     context.startActivity(intent);
+
                 }
             });
         }

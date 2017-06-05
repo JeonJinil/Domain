@@ -33,6 +33,7 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AdminUC5_1Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,7 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AdminUC5_2Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,7 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AdminUC5_3Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -42,6 +42,7 @@ public class AdminUC5_1Activity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"리프트 등록을 완료 하였습니다.",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),AdminMainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

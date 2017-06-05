@@ -96,8 +96,8 @@ public class User implements Serializable{
     public String serialNoGen(){ //원래는 외부 시스템이여야하나 지금은 여기 구현
         Random r = new Random();
         String ret= "";
-        for(int i=0;i<10;i++) {
-            char c = (char)((r.nextInt(128 - 32)) + 32);
+        for(int i=0;i<12;i++) {
+            char c = (char)((r.nextInt(10)) + 48);
             ret += String.valueOf(c);
         }
         return ret;

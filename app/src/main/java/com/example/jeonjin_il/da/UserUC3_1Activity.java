@@ -50,6 +50,7 @@ public class UserUC3_1Activity extends AppCompatActivity {
                     intent.putExtra("user", u);
                     intent.putExtra("liftLevel", liftlevel.get(0));
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -60,6 +61,7 @@ public class UserUC3_1Activity extends AppCompatActivity {
                     intent.putExtra("user", u);
                     intent.putExtra("liftLevel", liftlevel.get(1));
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -70,6 +72,7 @@ public class UserUC3_1Activity extends AppCompatActivity {
                     intent.putExtra("user", u);
                     intent.putExtra("liftLevel", liftlevel.get(2));
                     startActivity(intent);
+                    finish();
                 }
             });
 

@@ -55,20 +55,23 @@ public class UserMainActivty extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             ArrayList<Ticket> temp = u.getBuyTicket();
+            if(temp == null)
+                Toast.makeText(getApplication(),"구입한 티켓이 없습니다.",Toast.LENGTH_LONG).show();
             for(int i=0;i<temp.size();i++)
-                Toast.makeText(getApplication(),temp.get(i).getSerialNumber() + temp.get(i).getDate() + temp.get(i).getTimeType(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(),"날짜 : " + temp.get(i).getDate() + " 타입 : "+ temp.get(i).getTimeType() +
+                        "\n시리얼 번호 : "+ temp.get(i).getSerialNumber() ,Toast.LENGTH_SHORT).show();
         }
     };
     Button.OnClickListener listener5 = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             LiftReservation[] l = u.getTicket().getLiftReservation();
-            if(l[0] == null)
+            if(l == null)
                 Toast.makeText(getApplication(),"예약한 리프트가 없습니다.",Toast.LENGTH_SHORT).show();
             if(l[0] != null)
-                Toast.makeText(getApplication(),"첫번째 예약 리프트 이름 : "+l[0].getLiftname()+" 시간 : "+l[0].getLiftTime(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(),"첫번째 예약 리프트 이름 : "+l[0].getLiftname()+"\n시간 : "+l[0].getLiftTime(),Toast.LENGTH_SHORT).show();
             if(l[1] != null)
-                Toast.makeText(getApplication(),"두번째 예약 리프트 이름 : "+l[1].getLiftname()+" 시간 : "+l[1].getLiftTime(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(),"두번째 예약 리프트 이름 : "+l[1].getLiftname()+"\n시간 : "+l[1].getLiftTime(),Toast.LENGTH_SHORT).show();
         }
     };
 }

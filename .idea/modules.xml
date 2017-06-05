@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DomainAnaylsisClass-master.iml" filepath="$PROJECT_DIR$/DomainAnaylsisClass-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/da.iml" filepath="$PROJECT_DIR$/da.iml" />
     </modules>
   </component>
 </project>

@@ -51,6 +51,7 @@ public class UserUC1_2Activity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),UserMainActivty.class);
                     intent.putExtra("u",u);
                     startActivity(intent);
+                    finish();
                 }
                 else
                     Toast.makeText(getApplicationContext(),"결제 실패 하였습니다.",Toast.LENGTH_SHORT).show();

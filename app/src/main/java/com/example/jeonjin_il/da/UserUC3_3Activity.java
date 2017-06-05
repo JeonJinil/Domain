@@ -44,6 +44,7 @@ public class UserUC3_3Activity extends AppCompatActivity {
             ll.setOrientation(LinearLayout.HORIZONTAL);
             final Button btn = new Button(this);
             btn.setId(j + 1);
+            btn.setTextSize(20);
             btn.setGravity(Gravity.CENTER);
             btn.setText("시간 : " + l.getTimeblock().get(j).getTime() +" 가능 인원 : " +l.getTimeblock().get(j).getCapacity()+" / "+"2");
             btn.setLayoutParams(params);
@@ -54,7 +55,6 @@ public class UserUC3_3Activity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(l.getTimeblock().get(position).isfull()) {
                         Toast.makeText(getApplicationContext(), "선택한 시간에 예약이 이미 가득 찼습니다.", Toast.LENGTH_SHORT).show();
-                        finish();
                     }
                     else {
                         handler.enterTime(u.getTicket(), l.getTimeblock().get(position).getTime());
@@ -63,6 +63,7 @@ public class UserUC3_3Activity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), UserMainActivty.class);
                         intent.putExtra("u", u);
                         startActivity(intent);
+                        finish();
                     }
                 }
             });

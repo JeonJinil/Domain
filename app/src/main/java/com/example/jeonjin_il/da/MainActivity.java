@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         DBAdapter db = new DBAdapter(getApplicationContext(),"SNL.db",null,1);
         if(db.needInti()){
             db.Lift_Insert("Mercury",1,1000,10,1);
-//            db.Lift_Insert("Venus",3,500,50,1);
-//            db.Lift_Insert("Mars",3,600,60,1);
+            db.Lift_Insert("Venus",3,500,50,1);
+            db.Lift_Insert("Mars",3,600,60,1);
 //            db.Lift_Insert("Jupiter",1,1200,10,1);
-//            db.Lift_Insert("Saturn",2,2000,40,1);
+            db.Lift_Insert("Saturn",2,2000,40,1);
 //            db.Lift_Insert("Uranus",2,600,30,1);
 //            db.Lift_Insert("Neptune",3,560,60,1);
 //            db.Lift_Insert("Pluto",2,1120,40,1);
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             db.ticketPrice_Insert("06-17",45000,55000,35000);
 
 
-            Toast.makeText(getApplicationContext(),"테스트 데이타 들갓음",Toast.LENGTH_LONG).show();
         }
     }
 }

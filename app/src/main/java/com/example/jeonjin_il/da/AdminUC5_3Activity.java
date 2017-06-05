@@ -19,7 +19,7 @@ public class AdminUC5_3Activity extends AppCompatActivity {
         ArrayList<Lift> lifts = handler.closeLift(CLOSE,this);
 
         ListView listView = (ListView) findViewById(R.id.uc5_3list);
-        LiftState_Adapter adapter = new LiftState_Adapter(lifts,OPEN,this);
+        LiftState_Adapter adapter = new LiftState_Adapter(lifts,CLOSE,this);
         listView.setAdapter(adapter);
     }
 }

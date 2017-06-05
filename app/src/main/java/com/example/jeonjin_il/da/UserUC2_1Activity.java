@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class UserUC2_1Activity extends AppCompatActivity {
     Handler handler;
-    EditText text1,text2,text3,text4;
+    EditText text1,text2,text3;
     User u;
     Button btn;
     @Override
@@ -24,7 +24,6 @@ public class UserUC2_1Activity extends AppCompatActivity {
         text1 = (EditText)findViewById(R.id.UC2text1);
         text2 = (EditText)findViewById(R.id.UC2text2);
         text3 = (EditText)findViewById(R.id.UC2text3);
-        text4 = (EditText)findViewById(R.id.UC2text4);
 
 
 
@@ -32,7 +31,7 @@ public class UserUC2_1Activity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String serialNumber = text1.getText().toString()+text2.getText().toString()+text3.getText().toString()+text4.getText().toString();
+                String serialNumber = text1.getText().toString()+text2.getText().toString()+text3.getText().toString();
                 boolean state = handler.registerTicket(serialNumber,u);
                 if(state)
                     Toast.makeText(getApplication(),"티켓 등록을 완료하였습니다.",Toast.LENGTH_LONG).show();
@@ -41,6 +40,7 @@ public class UserUC2_1Activity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),UserMainActivty.class);
                 intent.putExtra("u",u);
                 startActivity(intent);
+                finish();
             }
         });
 
