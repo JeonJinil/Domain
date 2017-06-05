@@ -26,56 +26,57 @@ public class UserUC3_1Activity extends AppCompatActivity {
         handler = Handler.getInstance();
         if(u.getTicket() == null){
             Toast.makeText(getApplicationContext(),"티켓을 등록해주세요.",Toast.LENGTH_LONG).show();
-            this.finish();
+            finish();
         }
         else {
             liftlevel = handler.makeLiftReservation(u.getTicket(), this);
-            if (liftlevel.size() == 0) {
+            Toast.makeText(getApplicationContext(),String.valueOf(liftlevel.size()),Toast.LENGTH_LONG).show();
+            if (liftlevel.size() == 0 ) {
                 Toast.makeText(getApplicationContext(), "예약이 2개 다 찾습니다.", Toast.LENGTH_LONG).show();
-                this.finish();
+                finish();
             }
+            else {
 
+                Button btn1 = (Button) findViewById(R.id.uc3_1btn1);
+                Button btn2 = (Button) findViewById(R.id.uc3_1btn2);
+                Button btn3 = (Button) findViewById(R.id.uc3_1btn3);
+                btn1.setText(String.valueOf(liftlevel.get(0)));
+                btn2.setText(String.valueOf(liftlevel.get(1)));
+                btn3.setText(String.valueOf(liftlevel.get(2)));
 
-            Button btn1 = (Button) findViewById(R.id.uc3_1btn1);
-            Button btn2 = (Button) findViewById(R.id.uc3_1btn2);
-            Button btn3 = (Button) findViewById(R.id.uc3_1btn3);
-            btn1.setText(String.valueOf(liftlevel.get(0)));
-            btn2.setText(String.valueOf(liftlevel.get(1)));
-            btn3.setText(String.valueOf(liftlevel.get(2)));
+                btn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                        intent.putExtra("user", u);
+                        intent.putExtra("liftLevel", liftlevel.get(0));
+                        startActivity(intent);
+                        finish();
+                    }
+                });
 
-            btn1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
-                    intent.putExtra("user", u);
-                    intent.putExtra("liftLevel", liftlevel.get(0));
-                    startActivity(intent);
-                    finish();
-                }
-            });
+                btn2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                        intent.putExtra("user", u);
+                        intent.putExtra("liftLevel", liftlevel.get(1));
+                        startActivity(intent);
+                        finish();
+                    }
+                });
 
-            btn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
-                    intent.putExtra("user", u);
-                    intent.putExtra("liftLevel", liftlevel.get(1));
-                    startActivity(intent);
-                    finish();
-                }
-            });
-
-            btn3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
-                    intent.putExtra("user", u);
-                    intent.putExtra("liftLevel", liftlevel.get(2));
-                    startActivity(intent);
-                    finish();
-                }
-            });
-
+                btn3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), UserUC3_2Activity.class);
+                        intent.putExtra("user", u);
+                        intent.putExtra("liftLevel", liftlevel.get(2));
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
         }
     }
 

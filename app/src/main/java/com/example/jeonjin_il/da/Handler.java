@@ -88,8 +88,8 @@ public class Handler {
     public static ArrayList<String> ManageLift() {
         ArrayList<String> ret = new ArrayList<String>();
         ret.add("REGISTER LIFT");
-        ret.add("OPEN LIFT");
         ret.add("CLOSE LIFT");
+        ret.add("OPEN LIFT");
         return ret;
     }
 

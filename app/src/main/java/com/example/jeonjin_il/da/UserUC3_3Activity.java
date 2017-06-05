@@ -32,7 +32,6 @@ public class UserUC3_3Activity extends AppCompatActivity {
         t.setText(l.getLiftName());
 
         handler.enterName(u.getTicket(),l.getLiftName());
-        Toast.makeText(getApplicationContext(),u.getId()+l.getLiftName(),Toast.LENGTH_SHORT).show();
 
 
         lm = (LinearLayout) findViewById(R.id.ll2);

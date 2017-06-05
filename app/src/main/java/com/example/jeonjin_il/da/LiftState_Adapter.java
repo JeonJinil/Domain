@@ -73,12 +73,12 @@ public class LiftState_Adapter extends BaseAdapter {
                 public void onClick(View v) {
                     AlertDialog.Builder alert_confirm = new AlertDialog.Builder(act);
                     if(state == OPEN) {
-                        alert_confirm.setMessage("리프트를 여시겠습니까?").setCancelable(false).setPositiveButton("확인",
+                        alert_confirm.setMessage("리프트를 닫으시겠습니까?").setCancelable(false).setPositiveButton("확인",
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         handler.changeLiftState(m_List.get(position).getLiftId(),OPEN,act);
-                                        Toast.makeText(context, "리프트를 열었습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, "리프트를 닫았습니다.", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(context.getApplicationContext(),AdminMainActivity.class);
                                         context.startActivity(intent);
                                         act.finish();
@@ -94,13 +94,13 @@ public class LiftState_Adapter extends BaseAdapter {
                         alert.show();
                     }
                     else{
-                        alert_confirm.setMessage("리프트를 닫으시겠습니까?").setCancelable(false).setPositiveButton("확인",
+                        alert_confirm.setMessage("리프트를 여시겠습니까?").setCancelable(false).setPositiveButton("확인",
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
                                         handler.changeLiftState(m_List.get(position).getLiftId(),CLOSE,act);
-                                        Toast.makeText(context, "리프트를 닫았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, "리프트를 열었습니다.", Toast.LENGTH_LONG).show();
 
                                         Intent intent = new Intent(context.getApplicationContext(),AdminMainActivity.class);
                                         context.startActivity(intent);

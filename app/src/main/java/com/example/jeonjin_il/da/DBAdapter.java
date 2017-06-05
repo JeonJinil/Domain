@@ -69,10 +69,10 @@ public class DBAdapter extends SQLiteOpenHelper{
 
     public void TimeBlock_Insert(int i, float j, int capacity) {
         SQLiteDatabase db = getReadableDatabase();
-        if((int)j != j) {
-            int t= (int)j;
-            j = (float)t + (float)0.30;
-        }
+        if(j%2 == 1)
+            j = j/2 - (float)0.2;
+        else j/=2;
+
         db.execSQL("INSERT INTO TIMEBLOCK VALUES ( "+ i + ", " + j +"," + capacity +")" );
         db.close();
     }
