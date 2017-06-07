@@ -16,5 +16,5 @@
 
 ### 개발 IDE : Android Studio
 
-### Git 조소 :
+### Git 소 :
       https://github.com/JeonJinil/Domain 
